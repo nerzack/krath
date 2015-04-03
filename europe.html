@@ -1,0 +1,52 @@
+<html>
+<head><title>Τα κράτη της Ευρώπης</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-7" />
+<style>
+#velos{position:absolute;visibility:hidden;}
+#hartis{position:absolute;top:0;left:0;}
+#koumpi{position:absolute;left:500;top:0;font-size:10pt; font-family:"Courier New";}
+</style>
+<script>
+var hores=["Αζερμπαϊτζάν","Αλβανία","Αρμενία","Αυστρία","Βέλγιο","Βοσνία-Ερζεγοβίνη",
+"Βουλγαρία","Γαλλία","Γερμανία","Γεωργία","Δανία","Ελβετία","Ελλάδα","Εσθονία",
+"Ηνωμένo Βασίλειο","Ιρλανδία","Ισλανδία","Ισπανία","Ιταλία","Κροατία","Κύπρος","Λετονία",
+"Λευκορωσία","Λιθουανία","Λουξεμβούργο","Μάλτα","Μαυροβούνιο","Μολδαβία","Νορβηγία",
+"Ολλανδία","Ουγγαρία","Ουκρανία","ΠΓΔΜ","Πολωνία","Πορτογαλία","Ρουμανία","Ρωσία","Σερβία",
+"Σλοβακία","Σλοβενία","Σουηδία","Τουρκία","Τσεχία","Φινλανδία"];
+var horesx=[413,218,392,190,139,207,257,115,170,383,177,151,240,259,109,81,100,52,170,198,320,255,274,250,144,172,216,279,187,148,224,300,234,224,18,257,387,227,222,189,207,323,200,263];
+var horesy=[273,297,281,228,189,266,283,230,195,268,150,228,320,132,163,144,29,263,278,249,349,147,178,163,200,337,278,240,105,176,235,222,289,193,257,250,101,269,222,246,113,306,212,95];
+var NH=hores.length;
+var N=0;
+
+function randomhora()
+{
+N=Math.round(Math.random()*(NH-1));
+document.getElementById("velos").style.left=horesx[N];
+document.getElementById("velos").style.top=horesy[N];
+document.getElementById("velos").style.visibility='visible';
+R=N;
+}
+function checkhora(r){
+if (r==R) 
+{alert("Σωστά!");}
+ else 
+ {alert("Λάθος! "+hores[R]);}
+ randomhora();
+}
+function grapsehores() {
+document.write("<select name='select1' size=21 id='koumpi'>");
+for (var i=0;i<NH;i++) {
+      document.write("<option value='choice"+i+"' onclick='checkhora("+i+")'>"+hores[i]);
+}
+}
+</script>
+</head>
+<body>
+<img src="europe.jpg" id="hartis">
+<img src="point.gif" id="velos">
+<script>
+grapsehores();
+randomhora();
+</script>
+</body>
+</html>
